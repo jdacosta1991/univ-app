@@ -2,28 +2,29 @@
 <ul id="dropdown1" class="dropdown-content">
   <li><%= session_link %></li>
   <li class="divider"></li>
-  <li><a href="#!">three</a></li>
 </ul>
 <ul id="dropdown2" class="dropdown-content">
   <li><%= session_link %></li>
-  <li><a href="#!">two</a></li>
   <li class="divider"></li>
-  <li><a href="#!">three</a></li>
 </ul>
 <nav>
   <div class="container">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo right">TechUniversity</a>
+      <a><%= link_to 'TechUniversity', root_path, class:"brand-logo right" %></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="sass.html">Courses</a></li>
-        <li><a href="badges.html">Enrollments</a></li>
+        <li><%= link_to 'Courses', root_path, class:"left hide-on-med-and-down" %></li>
+        <% if logged_in? %>
+          <li><%= link_to 'Students', students_path, class:"left hide-on-med-and-down" %></li>
+        <% end %>
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
       <ul class="sidenav" id="mobile-demo">
-        <li><a href="sass.html">Courses</a></li>
-        <li><a href="badges.html">Enrollments</a></li>
-        <li><a href="mobile.html">About</a></li>
+        <li><%= link_to 'Courses', root_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to 'Students', students_path %></li>
+        <% end %>
+          <li><%= link_to 'About', about_path %></li>
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Account<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
     </div>
